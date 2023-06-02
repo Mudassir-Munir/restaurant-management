@@ -157,19 +157,19 @@ func UpdateOrder() gin.HandlerFunc {
 	}
 }
 
-func OrderItemOrderCreater(order models.Order) (string, error) {
-	order.Created_at, _ = time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
-	order.Created_at, _ = time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
+// func OrderItemOrderCreater(order models.Order) (string, error) {
+// 	order.Created_at, _ = time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
+// 	order.Created_at, _ = time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
 
-	order.ID = primitive.NewObjectID()
-	order.Order_id = order.ID.Hex()
+// 	order.ID = primitive.NewObjectID()
+// 	order.Order_id = order.ID.Hex()
 
-	_, err := orderCollection.InsertOne(ctx, order)
-	if err != nil {
-		//c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to create order item"})
-		return "", err
-	}
+// 	_, err := orderCollection.InsertOne(ctx, order)
+// 	if err != nil {
+// 		//c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to create order item"})
+// 		return "", err
+// 	}
 
-	return order.Order_id, nil
+// 	return order.Order_id, nil
 
-}
+// }
